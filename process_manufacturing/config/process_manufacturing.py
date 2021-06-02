@@ -8,7 +8,7 @@ def get_data():
 			"items": [
                 {
 					"type": "doctype",
-					"name": "Process Order",
+					"name": "Work Order2",
 					"description": _("Process Manufacturing Order."),
 				},
 				{
@@ -28,7 +28,7 @@ def get_data():
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Process Definition",
+					"name": "Bill Of Material2",
 					"description": _("Process Definition."),
 				},
 				{
