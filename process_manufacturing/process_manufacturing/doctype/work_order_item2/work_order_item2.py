@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2018, earthians and contributors
+# Copyright (c) 2021, earthians and contributors
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-import frappe
+# import frappe
 from frappe.model.document import Document
 
-class ProcessOrderItem(Document):
+class WorkOrderItem2(Document):
 	pass

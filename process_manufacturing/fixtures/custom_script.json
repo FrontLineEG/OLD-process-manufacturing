@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Custom Script",
+  "dt": "Work Order2",
+  "modified": "2021-06-04 17:49:58.525867",
+  "name": "Work Order2-Client",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Work Order2', \"process_name\", function(frm)  {\n    frappe.model.with_doc(\"Bill Of Material2\", frm.doc.process_name, function() {\n        var tabletransfer= frappe.model.get_doc(\"Bill Of Material2\", frm.doc.process_name)\n        cur_frm.process_type=tabletransfer.process_type\n        \n        cur_frm.refresh_field(\"process_type\");\n        \n        console.log(cur_frm.process_type)\n        cur_frm.clear_table('materials')\n        cur_frm.clear_table('finished_products')\n        cur_frm.clear_table('scrap')\n        $.each(tabletransfer.materials, function(index, row){\n        \tvar d=frm.add_child(\"materials\");\n            d.item=row.item\n            d.item_name=row.item_name\n            d.qty = row.qty;\n            cur_frm.refresh_field(\"materials\");\n         $.each(tabletransfer.finished_products, function(index, row){ \n                var c=frm.add_child(\"finished_products\");\n                c.item=row.item\n                c.item_name=row.item_name\n                c.qty = row.qty;\n            cur_frm.refresh_field(\"finished_products\");\n          })\n        $.each(tabletransfer.scrap, function(index, row){ \n                var e=frm.add_child(\"scrap\");\n                e.item=row.item\n                e.item_name=row.item_name\n                e.qty = row.qty;\n            cur_frm.refresh_field(\"scrap\");\n          })\n          \n})\n});\n\n\n})"
+ }
+]
